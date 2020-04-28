@@ -15,3 +15,5 @@ git clone https://github.com/Uberi/speech_recognition.git
 cd speech_recognition
 sudo python setup.py install
 git clone https://github.com/andythebreaker/car_pi.git
+git clone https://github.com/brendan-w/python-OBD.git
+python setup.py
