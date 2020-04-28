@@ -17,6 +17,7 @@ sudo python setup.py install
 git clone https://github.com/andythebreaker/car_pi.git
 git clone https://github.com/brendan-w/python-OBD.git
 sudo python setup.py install
+apt-get install flac
 ---
 vim ~/.asoundrc
 ```
