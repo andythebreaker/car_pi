@@ -9,4 +9,5 @@ FILE="./bashrc"
 sudo echo "export VISUAL=\"vim\"" > $FILE
 sudo echo "export EDITOR=\"$VISUAL\""> $FILE
 sudo cp ~/20200428success/vimrc ~/.vimrc
-sudo update-rc.d ssh defaultstmuxsudo apt-get install a
+sudo update-rc.d ssh defaults
+sudo apt-get install tmux
