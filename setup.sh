@@ -11,3 +11,6 @@ sudo echo "export EDITOR=\"$VISUAL\""> $FILE
 sudo cp ~/20200428success/vimrc ~/.vimrc
 sudo update-rc.d ssh defaults
 sudo apt-get install tmux
+git clone git@github.com:Uberi/speech_recognition.git
+cd speech_recognition
+sudo python setup.py install
