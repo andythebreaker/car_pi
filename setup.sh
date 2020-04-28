@@ -16,4 +16,16 @@ cd speech_recognition
 sudo python setup.py install
 git clone https://github.com/andythebreaker/car_pi.git
 git clone https://github.com/brendan-w/python-OBD.git
-python setup.py
+sudo python setup.py install
+---
+vim ~/.asoundrc
+```
+pcm.!default {
+    type hw
+    card 0
+}
+ctl.!default {
+    type hw
+    card 0
+}
+```
