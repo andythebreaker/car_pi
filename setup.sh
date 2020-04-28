@@ -14,3 +14,4 @@ sudo apt-get install tmux
 git clone git@github.com:Uberi/speech_recognition.git
 cd speech_recognition
 sudo python setup.py install
+git clone https://github.com/andythebreaker/car_pi.git
