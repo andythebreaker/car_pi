@@ -1,0 +1,11 @@
+--2020-06-30 12:43:28--  https://api.zhconvert.org/convert?converter=Pinyin
+Resolving api.zhconvert.org (api.zhconvert.org)... 2606:4700:3033::ac43:c71a, 2606:4700:3032::681f:546e, 2606:4700:3032::681f:556e, ...
+Connecting to api.zhconvert.org (api.zhconvert.org)|2606:4700:3033::ac43:c71a|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 173 [application/json]
+Saving to: ‘convert?converter=Pinyin’
+
+convert?converter=Pinyin       0%[                                              ]       0  --.-KB/s               convert?converter=Pinyin     100%[=============================================>]     173  --.-KB/s    in 0s      
+
+2020-06-30 12:43:29 (27.0 MB/s) - ‘convert?converter=Pinyin’ saved [173/173]
+

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wp2018/user/andythebreaker/andy/sound/cmake-3.18.0-rc2/Tests/CMakeLib/testAffinity.cxx
+cstddef
+-
+iostream
+-
+set
+-
+cmAffinity.h
+/home/wp2018/user/andythebreaker/andy/sound/cmake-3.18.0-rc2/Tests/CMakeLib/cmAffinity.h
+
+Source/cmAffinity.h
+cmConfigure.h
+Source/cmConfigure.h
+cstddef
+-
+set
+-
+
+Source/cmConfigure.h
+cmsys/Configure.hxx
+Source/cmsys/Configure.hxx
+
+Source/cmsys/Configure.h
+
+Source/cmsys/Configure.hxx
+cmsys/Configure.h
+-
+

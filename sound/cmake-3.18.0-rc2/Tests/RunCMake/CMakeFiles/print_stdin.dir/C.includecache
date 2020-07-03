@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wp2018/user/andythebreaker/andy/sound/cmake-3.18.0-rc2/Tests/RunCMake/print_stdin.c
+stdio.h
+-
+

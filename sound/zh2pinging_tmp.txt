@@ -1,0 +1,18 @@
+{
+    "code": 0,
+    "data": {
+        "converter": "Pinyin",
+        "text": "yin3 qing2 zhuan4 su4 wei4 er4 shi2 gong1 chi3 mei3 miao3",
+        "diff": null,
+        "textFormat": "PlainText",
+        "usedModules": [],
+        "jpTextStyles": []
+    },
+    "msg": "",
+    "revisions": {
+        "build": "dict-ba1a09b1-r943",
+        "msg": "fix: 例行性修正字詞 20200702",
+        "time": 1593691692
+    },
+    "execTime": 0.012
+}

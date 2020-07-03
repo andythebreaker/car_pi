@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wp2018/user/andythebreaker/andy/sound/cmake-3.18.0-rc2/Tests/RunCMake/pseudo_tidy.c
+stdio.h
+-
+string.h
+-
+
