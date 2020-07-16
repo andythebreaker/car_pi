@@ -1,0 +1,1 @@
+https://openhome.cc/Gossip/CppGossip/BinaryFileIO.html
