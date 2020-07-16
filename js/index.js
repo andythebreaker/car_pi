@@ -21,6 +21,7 @@ $(document).ready(function(){//YOUR CODE HERE
             }
         }
     }
+    console.log(rawFile.onreadystatechange);
     rawFile.send(null);
 }
 var theDiv = document.getElementById("headerJS");
