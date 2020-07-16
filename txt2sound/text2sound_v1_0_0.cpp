@@ -47,6 +47,7 @@ const string place_of_mp3_lib2 = "HowHow-parser/result/mp3/2";
 vector<string> files1 = vector<string>();
 vector<string> files2 = vector<string>();
 int FileInit();
+string command="";//RM this line if define OLD==1
 
 //main
 int main()
@@ -134,6 +135,7 @@ int main()
              << txt << " = " << response << endl
              << "==========================" << endl;
     }
+    string response=pig_get_parse(txt,0);
     //check mp3 lib
     if (OLD_MP3_LIB)
     {
@@ -214,9 +216,9 @@ int main()
     int pinging_mp3_loc[how_meny_word] = {0};
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
     {
-        pinging_mp3_loc[i_cut] = (std::find(files1.begin(), files1.end(), arr[i_cut]) != files1.end()) ? 0 : 1;
+        pinging_mp3_loc[i_cut] = (std::find(files1.begin(), files1.end(), arr[i_cut]+".mp3") != files1.end()) ? 1 : 0;
         if (pinging_mp3_loc[i_cut] == 0)
-            pinging_mp3_loc[i_cut] = (std::find(files2.begin(), files2.end(), arr[i_cut]) != files2.end()) ? 0 : 2;
+            pinging_mp3_loc[i_cut] = (std::find(files2.begin(), files2.end(), arr[i_cut]+".mp3") != files2.end()) ? 2 : 0;
     }
     int check_no_mp3 = -1;
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
@@ -510,13 +512,13 @@ int FileInit()
     int i_ = 0;
     for (i_ = 0; i_ < files1.size(); i_++)
     {
-        cout << files[i_] << endl;
+        cout << files1[i_] << endl;
     }
     getdir(place_of_mp3_lib2, files2);
 
     for (i_ = 0; i_ < files2.size(); i_++)
     {
-        cout << files[i_] << endl;
+        cout << files2[i_] << endl;
     }
     return 0;
 }
