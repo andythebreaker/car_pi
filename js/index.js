@@ -1,5 +1,6 @@
 console.log("start index.js");//comment
 $(document).ready(function(){//YOUR CODE HERE
+  window.onload = function(){
   'use strict';
   console.log("document ready");
   
@@ -26,4 +27,4 @@ var theDiv = document.getElementById("headerJS");
 var content = document.createTextNode(readTextFile("https://raw.githubusercontent.com/andythebreaker/car_pi/gh-pages/header.html"));
 theDiv.appendChild(content);
 console.log("end header.js");
-});
+  };});
