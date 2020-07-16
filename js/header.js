@@ -16,5 +16,5 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
-readTextFile("../header.html");
+readTextFile("https://raw.githubusercontent.com/andythebreaker/car_pi/gh-pages/header.html");
 console.log("end header.js");
