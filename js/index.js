@@ -24,11 +24,12 @@ $(document).ready(function(){//YOUR CODE HERE
     }
     rawFile.send(null);
 }
-var theDiv = document.getElementById("headerJS");
-readTextFile("https://raw.githubusercontent.com/andythebreaker/car_pi/gh-pages/header.html");
-console.log(glob);
-var content=document.createTextNode(glob);
-theDiv.appendChild(content);
+//var theDiv = document.getElementById("headerJS");
+//readTextFile("https://raw.githubusercontent.com/andythebreaker/car_pi/gh-pages/header.html");
+//console.log(glob);
+//var content=document.createTextNode(glob);
+//theDiv.appendChild(content);
+$(glob).appendTo( "header" );
 console.log("end header.js");
   };
 });
