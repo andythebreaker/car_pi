@@ -117,8 +117,9 @@ int main()
              << txt << " = " << response << endl
              << "==========================" << endl;
     }
+    string response=pig_get_parse(txt,0);
     //check mp3 lib
-    command = "";
+    string command = "";//orig: no "string"
     command = str_dir + place_of_mp3_lib + str_mp3_place1 + str_out_to_text_1;
     system(command.c_str());
     command = str_dir + place_of_mp3_lib + str_mp3_place2 + str_out_to_text_2;
