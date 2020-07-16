@@ -1,24 +1,28 @@
 //TODO:
-//https://openhome.cc/Gossip/CppGossip/BinaryFileIO.html
+/*
+https://openhome.cc/Gossip/CppGossip/BinaryFileIO.html
+*/
 
-//using .h github.com/yhirose/cpp-httplib
-//using .h github.com/sheredom/json.h
-//ref: https://github.com/lieff/minimp3
-//ref https://docs.zhconvert.org/api/convert/
-//ref https://docs.zhconvert.org/api/convert/
-//ref https://docs.zhconvert.org/api/convert/
-//using .h for test :: kuan1.mp3, minimp3.h, minimp3_ex.h, nv1.mp3
+//What files need to be included to work
+/*
+    using .h github.com/yhirose/cpp-httplib
+    using .h github.com/sheredom/json.h
+    using for test :: kuan1.mp3, minimp3.h, minimp3_ex.h, nv1.mp3
+    ref: https://github.com/lieff/minimp3
+    ref: https://docs.zhconvert.org/api/convert/
+    ref: https://github.com/EarlySpringCommitee/HowHow-parser
+*/
 
 //include
 #define MINIMP3_IMPLEMENTATION //minimp3/try_mp.cpp
 #include "minimp3_ex.h"        //minimp3/try_mp.cpp
+#include <fstream>             //minimp3/try_mp.cpp
+#include <iomanip>             //minimp3/try_mp.cpp
 #include <string>              //v0.0.1
 #include <iostream>            //v0.0.1
 #include <fstream>             //v0.0.1
 #include <stdlib.h>            //v0.0.1
 #include <sstream>             //v0.0.1
-#include <fstream>             //minimp3/try_mp.cpp
-#include <iomanip>             //minimp3/try_mp.cpp
 #include <dirent.h>            //getdir
 #include <errno.h>             //getdir
 #include <vector>              //getdir
@@ -34,36 +38,34 @@
 #define DEBUG_FFMPEG 1      //v0.0.1
 #define OLD_API_GET 0
 #define OLD_MP3_LIB 0
+#define THIS_IS_A_TRY_FUNCTION 0
 
 using namespace std;
 
-//full range
-int getdir(string dir, vector<string> &files);     //getdir
-string pig_get_parse(string in_str, int ifvisual); //wget_json.cpp
-int decode_mp3_file(string str_in);                //minimp3/try_mp.cpp
-int read_mp3_ng();                                 //minimp3/try_mp.cpp
-const string place_of_mp3_lib1 = "HowHow-parser/result/mp3/1";
-const string place_of_mp3_lib2 = "HowHow-parser/result/mp3/2";
+//Global variable
+int FileInit();
+int getdir(string dir, vector<string> &files);                 //getdir
+string pig_get_parse(string in_str, int ifvisual);             //wget_json.cpp
+int decode_mp3_file(string str_in);                            //minimp3/try_mp.cpp
+int read_mp3_ng();                                             //minimp3/try_mp.cpp
+const string place_of_mp3_lib1 = "HowHow-parser/result/mp3/1"; //old
+const string place_of_mp3_lib2 = "HowHow-parser/result/mp3/2"; //old
 vector<string> files1 = vector<string>();
 vector<string> files2 = vector<string>();
-int FileInit();
-string command="";//RM this line if define OLD==1
+string command = ""; //RM this line if define OLD==1
 
 //main
 int main()
 {
-
+    //init
     FileInit();
-    cout << "start" << endl;
-    cout << pig_get_parse("測試訊息", 0) << endl;
-    cout << "end" << endl;
-    read_mp3_ng();
+    if (THIS_IS_A_TRY_FUNCTION)
+    {
+        read_mp3_ng();
+    }
 
+    //const string
     const string str_mp3 = ".mp3";
-    if (DEBUG_FFMPEG == 0)
-        const string str_ffmpeg_head = "ffmpeg";
-    if (DEBUG_FFMPEG == 0)
-        const string str_ffmpeg_end = " -filter_complex [0:a][1:a]concat=n=2:v=0:a=1 output.mp3";
     const string place_of_mp3_lib = "HowHow-parser/result/mp3";
     const string str_mp3_place1 = "/1";
     const string str_mp3_place2 = "/2";
@@ -84,11 +86,23 @@ int main()
     const string str_out_to_text = " > ";
     const string str_out_to_text_1 = str_out_to_text + str_dir_list_text_1;
     const string str_out_to_text_2 = str_out_to_text + str_dir_list_text_2;
+
+    //no use or old const string
+    if (DEBUG_FFMPEG == 0)
+    {
+        const string str_ffmpeg_head = "ffmpeg";
+    }
+    if (DEBUG_FFMPEG == 0)
+    {
+        const string str_ffmpeg_end = " -filter_complex [0:a][1:a]concat=n=2:v=0:a=1 output.mp3";
+    }
+
+    //char/string
     char ch;
     string file_res = "";
+    string txt = "引擎轉速為二十公尺每秒";
 
     //api down
-    string txt = "引擎轉速為二十公尺每秒";
     if (OLD_API_GET)
     {
         cout << "start" << endl;
@@ -135,7 +149,9 @@ int main()
              << txt << " = " << response << endl
              << "==========================" << endl;
     }
-    string response=pig_get_parse(txt,0);
+    //new api get
+    string response = pig_get_parse(txt, 0);
+
     //check mp3 lib
     if (OLD_MP3_LIB)
     {
@@ -216,9 +232,9 @@ int main()
     int pinging_mp3_loc[how_meny_word] = {0};
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
     {
-        pinging_mp3_loc[i_cut] = (std::find(files1.begin(), files1.end(), arr[i_cut]+".mp3") != files1.end()) ? 1 : 0;
+        pinging_mp3_loc[i_cut] = (std::find(files1.begin(), files1.end(), arr[i_cut] + ".mp3") != files1.end()) ? 1 : 0; //new
         if (pinging_mp3_loc[i_cut] == 0)
-            pinging_mp3_loc[i_cut] = (std::find(files2.begin(), files2.end(), arr[i_cut]+".mp3") != files2.end()) ? 2 : 0;
+            pinging_mp3_loc[i_cut] = (std::find(files2.begin(), files2.end(), arr[i_cut] + ".mp3") != files2.end()) ? 2 : 0; //new
     }
     int check_no_mp3 = -1;
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
@@ -290,12 +306,6 @@ int main()
     cout << command_2 << endl;
     system(command_2.c_str());
     system("yes | ffmpeg -f concat -i tmp_ffmpeg_mix.txt -c copy output.mp3");
-
-    //for test
-    system("yes | cp output.mp3 ~/car_pi/output.mp3");
-    //system("git add -A");
-    //system("git commit -m \"auto up mp3\"");
-    //system("git push");
 }
 //========================END OF MAIN======================================================
 
