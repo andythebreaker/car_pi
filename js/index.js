@@ -26,7 +26,7 @@ $(document).ready(function(){//YOUR CODE HERE
 }
 var theDiv = document.getElementById("headerJS");
 //readTextFile("https://raw.githubusercontent.com/andythebreaker/car_pi/gh-pages/header.html");
-//console.log(glob);
+console.log(glob);
 //var content=document.createTextNode(glob);
 //theDiv.appendChild(content);
 theDiv.insertAdjacentHTML( 'beforeend', glob );
