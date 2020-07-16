@@ -8,14 +8,18 @@
 using namespace std;
 
 int decode_mp3_file(string str_in);
-
+int read_mp3_ng();
 int main(){
-  cout<<"start"<<endl;
+  read_mp3_ng();
+  return 0;
+}
+int read_mp3_ng(){
+  cout<<"mini_mp3_try"<<endl;
   string filename1="nv1.mp3";
   string filename2="kuan1.mp3";
   decode_mp3_file(filename2);
   decode_mp3_file(filename1);
-  cout<<"end"<<endl;
+  cout<<"end_of_mini_mp3_try"<<endl;
 
   int wtf=0;
   //for(wtf=0;wtf<10;wtf++){
