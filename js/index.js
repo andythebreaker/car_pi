@@ -5,6 +5,7 @@ $(document).ready(function(){//YOUR CODE HERE
   console.log("document ready");
   
   console.log("load header.js");
+  var glob="";
   function readTextFile(file)
   {
     var rawFile = new XMLHttpRequest();
@@ -16,17 +17,16 @@ $(document).ready(function(){//YOUR CODE HERE
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
+                glob=allText;
                 //console.log(allText);
-                return allText;
             }
         }
-    }
-    console.log(rawFile.onreadystatechange);
     rawFile.send(null);
 }
 var theDiv = document.getElementById("headerJS");
-console.log(readTextFile("https://raw.githubusercontent.com/andythebreaker/car_pi/gh-pages/header.html"));
-var content = document.createTextNode(readTextFile("https://raw.githubusercontent.com/andythebreaker/car_pi/gh-pages/header.html"));
+readTextFile("https://raw.githubusercontent.com/andythebreaker/car_pi/gh-pages/header.html");
+console.log(glob);
+document.createTextNode(glob);
 theDiv.appendChild(content);
 console.log("end header.js");
   };});
