@@ -18,7 +18,7 @@ $(document).ready(function(){//YOUR CODE HERE
             {
                 var allText = rawFile.responseText;
                 glob=allText;
-                //console.log(allText);
+                console.log(allText);
             }
         }
     }
