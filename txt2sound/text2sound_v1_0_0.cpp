@@ -9,6 +9,7 @@
 //ref https://docs.zhconvert.org/api/convert/
 //using .h for test :: kuan1.mp3, minimp3.h, minimp3_ex.h, nv1.mp3
 
+//include
 #define MINIMP3_IMPLEMENTATION //minimp3/try_mp.cpp
 #include "minimp3_ex.h"        //minimp3/try_mp.cpp
 #include <string>              //v0.0.1
@@ -18,24 +19,40 @@
 #include <sstream>             //v0.0.1
 #include <fstream>             //minimp3/try_mp.cpp
 #include <iomanip>             //minimp3/try_mp.cpp
-//#include <dirent.h>//txt2sound_V_1_0_0.cpp
-//#include <errno.h>//txt2sound_V_1_0_0.cpp
-#include <vector>           //txt2sound_V_1_0_0.cpp
-#include "httplib.h"        //wget_json.cpp
-#include "json.h"           //wget_json.cpp
+#include <dirent.h>            //getdir
+#include <errno.h>             //getdir
+#include <vector>              //getdir
+#include "httplib.h"           //wget_json.cpp
+#include "json.h"              //wget_json.cpp
+#include <algorithm>           //std::find
+
+//define
 #define DEBUG_PART01 0      //v0.0.1
 #define DEBUG_CUT_PINGING 0 //v0.0.1
 #define PRINT_LIST 0        //v0.0.1
 #define DEBUG12 0           //v0.0.1
 #define DEBUG_FFMPEG 1      //v0.0.1
 #define OLD_API_GET 0
+#define OLD_MP3_LIB 0
+
 using namespace std;
-//int getdir(string dir, vector<string> &files);//txt2sound_V_1_0_0.cpp
+
+//full range
+int getdir(string dir, vector<string> &files);     //getdir
 string pig_get_parse(string in_str, int ifvisual); //wget_json.cpp
 int decode_mp3_file(string str_in);                //minimp3/try_mp.cpp
 int read_mp3_ng();                                 //minimp3/try_mp.cpp
+const string place_of_mp3_lib1 = "HowHow-parser/result/mp3/1";
+const string place_of_mp3_lib2 = "HowHow-parser/result/mp3/2";
+vector<string> files1 = vector<string>();
+vector<string> files2 = vector<string>();
+int FileInit();
+
+//main
 int main()
 {
+
+    FileInit();
     cout << "start" << endl;
     cout << pig_get_parse("測試訊息", 0) << endl;
     cout << "end" << endl;
@@ -117,52 +134,54 @@ int main()
              << txt << " = " << response << endl
              << "==========================" << endl;
     }
-    string response=pig_get_parse(txt,0);
     //check mp3 lib
-    string command = "";//orig: no "string"
-    command = str_dir + place_of_mp3_lib + str_mp3_place1 + str_out_to_text_1;
-    system(command.c_str());
-    command = str_dir + place_of_mp3_lib + str_mp3_place2 + str_out_to_text_2;
-    system(command.c_str());
-    string list_mp3_lib_1 = "";
-    string list_mp3_lib_2 = "";
-    ifstream list_mp3_lib1;
-    ifstream list_mp3_lib2;
-    list_mp3_lib1.open(str_dir_list_text_1);
-    list_mp3_lib2.open(str_dir_list_text_2);
-    if (!list_mp3_lib1)
+    if (OLD_MP3_LIB)
     {
-        cout << "mp3 lib 1 open error!" << endl;
-        return 1;
-    }
-    else
-    {
-        while (!list_mp3_lib1.eof())
+        command = "";
+        command = str_dir + place_of_mp3_lib + str_mp3_place1 + str_out_to_text_1;
+        system(command.c_str());
+        command = str_dir + place_of_mp3_lib + str_mp3_place2 + str_out_to_text_2;
+        system(command.c_str());
+        string list_mp3_lib_1 = "";
+        string list_mp3_lib_2 = "";
+        ifstream list_mp3_lib1;
+        ifstream list_mp3_lib2;
+        list_mp3_lib1.open(str_dir_list_text_1);
+        list_mp3_lib2.open(str_dir_list_text_2);
+        if (!list_mp3_lib1)
         {
-            list_mp3_lib1.get(ch);
-            list_mp3_lib_1 += ch;
+            cout << "mp3 lib 1 open error!" << endl;
+            return 1;
         }
-    }
-    if (!list_mp3_lib2)
-    {
-        cout << "mp3 lib 2 open error!" << endl;
-        return 1;
-    }
-    else
-    {
-        while (!list_mp3_lib2.eof())
+        else
         {
-            list_mp3_lib2.get(ch);
-            list_mp3_lib_2 += ch;
+            while (!list_mp3_lib1.eof())
+            {
+                list_mp3_lib1.get(ch);
+                list_mp3_lib_1 += ch;
+            }
         }
+        if (!list_mp3_lib2)
+        {
+            cout << "mp3 lib 2 open error!" << endl;
+            return 1;
+        }
+        else
+        {
+            while (!list_mp3_lib2.eof())
+            {
+                list_mp3_lib2.get(ch);
+                list_mp3_lib_2 += ch;
+            }
+        }
+        if (PRINT_LIST)
+            cout << "=====mp3 lib 1=====" << endl
+                 << list_mp3_lib_1 << endl
+                 << "=====mp3 lib 2=====" << endl
+                 << list_mp3_lib_2 << endl;
+        list_mp3_lib1.close();
+        list_mp3_lib2.close();
     }
-    if (PRINT_LIST)
-        cout << "=====mp3 lib 1=====" << endl
-             << list_mp3_lib_1 << endl
-             << "=====mp3 lib 2=====" << endl
-             << list_mp3_lib_2 << endl;
-    list_mp3_lib1.close();
-    list_mp3_lib2.close();
 
     //cut target pinging
     int how_meny_word = 0;
@@ -195,9 +214,9 @@ int main()
     int pinging_mp3_loc[how_meny_word] = {0};
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
     {
-        pinging_mp3_loc[i_cut] = (list_mp3_lib_1.find(arr[i_cut]) == string::npos) ? 0 : 1;
+        pinging_mp3_loc[i_cut] = (std::find(files1.begin(), files1.end(), arr[i_cut]) != files1.end()) ? 0 : 1;
         if (pinging_mp3_loc[i_cut] == 0)
-            pinging_mp3_loc[i_cut] = (list_mp3_lib_2.find(arr[i_cut]) == string::npos) ? 0 : 2;
+            pinging_mp3_loc[i_cut] = (std::find(files2.begin(), files2.end(), arr[i_cut]) != files2.end()) ? 0 : 2;
     }
     int check_no_mp3 = -1;
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
@@ -276,6 +295,7 @@ int main()
     //system("git commit -m \"auto up mp3\"");
     //system("git push");
 }
+//========================END OF MAIN======================================================
 
 //car_pi/clean_code/wget_json.cpp
 string pig_get_parse(string in_str, int ifvisual)
@@ -459,6 +479,44 @@ int decode_mp3_file(string str_in)
         {
             cout << pcm[bit_i];
         }
+    }
+    return 0;
+}
+
+//getdir
+int getdir(string dir, vector<string> &files)
+{
+    DIR *dp; //dir pointer
+    struct dirent *dirp;
+    if ((dp = opendir(dir.c_str())) == NULL)
+    {
+        cout << "ERROR(" << errno << ") opening " << dir << endl;
+        return errno;
+    }
+    while ((dirp = readdir(dp)) != NULL)
+    {
+        //if dir pointer != null
+        files.push_back(string(dirp->d_name)); //put dir & file name into vector
+    }
+    closedir(dp);
+    return 0;
+}
+
+int FileInit()
+{
+    //string dir = ".";
+    //vector<string> files = vector<string>();
+    getdir(place_of_mp3_lib1, files1);
+    int i_ = 0;
+    for (i_ = 0; i_ < files1.size(); i_++)
+    {
+        cout << files[i_] << endl;
+    }
+    getdir(place_of_mp3_lib2, files2);
+
+    for (i_ = 0; i_ < files2.size(); i_++)
+    {
+        cout << files[i_] << endl;
     }
     return 0;
 }
