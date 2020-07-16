@@ -21,6 +21,7 @@ $(document).ready(function(){//YOUR CODE HERE
                 //console.log(allText);
             }
         }
+    }
     rawFile.send(null);
 }
 var theDiv = document.getElementById("headerJS");
@@ -29,4 +30,5 @@ console.log(glob);
 document.createTextNode(glob);
 theDiv.appendChild(content);
 console.log("end header.js");
-  };});
+  };
+});
