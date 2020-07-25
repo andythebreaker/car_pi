@@ -1,3 +1,0 @@
-include(RunCMake)
-
-run_cmake_with_options(BeforeProject -DCMAKE_PROJECT_INCLUDE_BEFORE=BeforeProjectBEFORE.cmake)
