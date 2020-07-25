@@ -1,0 +1,10 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wp2018/user/andythebreaker/car_pi/grpc_test/cmake-3.18.0/Tests/CMakeLib/PseudoMemcheck/NoLog/ret0.c
+
