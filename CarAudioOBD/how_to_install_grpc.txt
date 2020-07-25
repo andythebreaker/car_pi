@@ -1,0 +1,21 @@
+download->http://www.cmake.org/download/
+
+tar -xf cmake*.tar.gz
+
+cd cmake*
+
+./configure --prefix=$HOME
+
+make
+
+make install
+
+cmake --version
+
+#ref:https://pachterlab.github.io/kallisto/local_build.html
+
+download->https://github.com/grpc/grpc/releases
+//there is .zip to download
+
+unzip what u got
+//the command is "unzip"
