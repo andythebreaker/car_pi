@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<!--https://andythebreaker.github.io/car_pi/-->
+<html lang="zh-Hant-TW">
+  <head>
+    <title>飛機杯的一生都在精神時光屋</title>
+    <!--meta-->
+    <meta name="author" content="飛機杯的一生都在精神時光屋">
+    <meta name="keywords" content="code, project, hardware, software, car, python, C++">
+    <!--TODO: fill in keywords-->
+    <meta name="description" content="飛機杯的一生都在精神時光屋">
+    <meta charset="utf8">
+    <!--ico-->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--bootstrap-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!--dash bord-->
+    <!--<link href="https://getbootstrap.com/docs/4.0/examples/dashboard/dashboard.css" rel="stylesheet">-->
+    <!--js&css-->
+  </head>
+  <body>
+    <header>
+      <div id="headerJS">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark" style="background-color: #6AB4CD;">
+            <a class="navbar-brand" href="About">ACLSH</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="https://andythebreaker.github.io/car_pi/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="ToDo">ToDo</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="ProjectList" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Projects
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="CarAudioOBD">Car Audio OBD</a>
+                    <a class="dropdown-item" href="Research">Research</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="OtherProjects">Other projects</a>
+                  </div>
+                </li>
+                <!--
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              -->
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light my-2 my-sm-0" type="submit" style="color:#a4243b;">Search</button>
+              </form>
+            </div>
+          </nav>
+      </div>
+    </header>
+    <div class="data">
+        <table border='1' width=75% height=90%>
+            <thead>
+                <tr><td>user</td><td>RPM</td><td>time</td></tr>
+            </thead>
+            <tbody id="add_on">
+                <!--iframe src="http://luffy.ee.ncku.edu.tw:10087/data?" width=100% height=100%></iframe-->
+            </tbody>
+        </table>
+    </div>
+    <footer>
+<div><h3>API:</h3><p>http://luffy.ee.ncku.edu.tw:10087/anything?user=your_name&RPM=your_value</p></div>    
+</footer>
+<script>
+var glob="";
+  function readTextFile(file)
+  {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        //if(rawFile.readyState === 4)
+      //{
+        //console.log("stage1");
+            //if(rawFile.status === 200 || rawFile.status == 0)
+        //{
+          //console.log("stage2");
+                var allText = rawFile.responseText;
+                glob=allText;
+                //console.log(allText);
+            //}
+        //}
+    }
+    rawFile.send(null);
+  }
+var thediv=document.getElementById("add_on");
+readTextFile("http://luffy.ee.ncku.edu.tw:10087/data?");
+console.log(glob);
+thediv.innerHTML=glob;
+</script>
+  </body>
+</html>
