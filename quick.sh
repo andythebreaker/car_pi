@@ -1,3 +1,3 @@
 git add -A
-git commit -m "auto mp3"
+git commit -m "auto up"
 git push
