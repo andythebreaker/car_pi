@@ -55,7 +55,7 @@ vector<string> files2 = vector<string>();
 string command = ""; //RM this line if define OLD==1
 
 //main
-int main()
+int main(int argc, char *argv[])
 {
     //init
     FileInit();
@@ -100,7 +100,8 @@ int main()
     //char/string
     char ch;
     string file_res = "";
-    string txt = "引擎轉速為二十公尺每秒";
+    //string txt = "引擎轉速為二十公尺每秒";
+string txt = argv[1];
 
     //api down
     if (OLD_API_GET)
@@ -306,6 +307,7 @@ int main()
     cout << command_2 << endl;
     system(command_2.c_str());
     system("yes | ffmpeg -f concat -i tmp_ffmpeg_mix.txt -c copy output.mp3");
+    system("ffplay -autoexit output.mp3");
 }
 //========================END OF MAIN======================================================
 

@@ -1,10 +1,10 @@
 #coding:utf8
 import speech_recognition as sr
-#import serial
+import serial
 import time
-#COM_PORT='/dev/ttyUSB0'
-#BAUD_RATES = 9600
-#ser = serial.Serial(COM_PORT, BAUD_RATES)
+COM_PORT='/dev/ttyUSB0'
+BAUD_RATES = 9600
+ser = serial.Serial(COM_PORT, BAUD_RATES)
 
 # obtain path to "english.wav" in the same folder as this script
 from os import path
@@ -24,10 +24,10 @@ try:
     # instead of `r.recognize_google(audio)`
     anwser = r.recognize_google(audio, language="zh-TW")
     print("Google Speech Recognition thinks you said " + anwser)
-#    if (anwser == (u"關燈")) :
-#         print("transfer the instruction to pi")
-#         while True:
-#                ser.write(1)
+    if (anwser == (u"關燈")) :
+          print("transfer the instruction to pi")
+          while True:
+                 ser.write(1)
 except sr.UnknownValueError:
     print("Google Speech Recognition could not understand audio")
 except sr.RequestError as e:
