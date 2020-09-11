@@ -1,4 +1,3 @@
-
 #coding:utf8
 import speech_recognition as sr
 #import serial
