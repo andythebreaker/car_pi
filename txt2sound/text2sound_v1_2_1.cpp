@@ -307,7 +307,9 @@ int main(int argc, char *argv[])
     cout << command_2 << endl;
     system(command_2.c_str());
     system("yes | ffmpeg -f concat -i tmp_ffmpeg_mix.txt -c copy output.mp3");
-    system("ffplay -autoexit output.mp3");
+    if(argv[2]=="1"){
+      system("ffplay -autoexit output.mp3");
+    }
 }
 //========================END OF MAIN======================================================
 
