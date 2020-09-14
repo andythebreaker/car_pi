@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
     char ch;
     string file_res = "";
     //string txt = "引擎轉速為二十公尺每秒";
-string txt = argv[1];
+    string txt = argv[1];
 
     //api down
     if (OLD_API_GET)
@@ -307,7 +307,12 @@ string txt = argv[1];
     cout << command_2 << endl;
     system(command_2.c_str());
     system("yes | ffmpeg -f concat -i tmp_ffmpeg_mix.txt -c copy output.mp3");
-    system("ffplay -autoexit output.mp3");
+    
+    //ffmpeg play
+    string do_you_want_to_play_it_out=argv[2];
+    if(do_you_want_to_play_it_out.compare("1")==0){
+      system("ffplay -autoexit output.mp3");
+    }
 }
 //========================END OF MAIN======================================================
 
