@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
     char ch;
     string file_res = "";
     //string txt = "引擎轉速為二十公尺每秒";
-string txt = argv[1];
+    string txt = argv[1];
 
     //api down
     if (OLD_API_GET)
