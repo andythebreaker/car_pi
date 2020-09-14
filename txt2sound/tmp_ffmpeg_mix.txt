@@ -1,8 +1,6 @@
 #
-file 'HowHow-parser/result/mp3/2/zhe4.mp3'
-file 'HowHow-parser/result/mp3/2/shi4.mp3'
-file 'HowHow-parser/result/mp3/2/yi1.mp3'
-file 'HowHow-parser/result/mp3/1/ge4.mp3'
-file 'HowHow-parser/result/mp3/2/shu4.mp3'
-file 'HowHow-parser/result/mp3/2/zi4.mp3'
+file 'HowHow-parser/result/mp3/2/chi1.mp3'
+file 'HowHow-parser/result/mp3/1/da4.mp3'
+file 'HowHow-parser/result/mp3/1/bian4.mp3'
+file 'HowHow-parser/result/mp3/1/la1.mp3'
 
