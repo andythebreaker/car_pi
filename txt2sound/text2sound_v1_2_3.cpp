@@ -231,18 +231,24 @@ int main(int argc, char *argv[])
         }
     }
     int pinging_mp3_loc[how_meny_word] = {0};
+    
+    cout<<"===============sounds that we need=================="<<endl;
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
     {
+        cout<<arr[i_cut]<<endl;
         pinging_mp3_loc[i_cut] = (std::find(files1.begin(), files1.end(), arr[i_cut] + ".mp3") != files1.end()) ? 1 : 0; //new
         if (pinging_mp3_loc[i_cut] == 0)
             pinging_mp3_loc[i_cut] = (std::find(files2.begin(), files2.end(), arr[i_cut] + ".mp3") != files2.end()) ? 2 : 0; //new
     }
+    cout<<"===================================================="<<endl;
     int check_no_mp3 = -1;
+    //see all word in witch folder
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
     {
         cout << "mp3 loc folder (1/2): " << pinging_mp3_loc[i_cut] << endl;
         check_no_mp3 *= pinging_mp3_loc[i_cut];
     }
+    //check if all word in folder
     if (check_no_mp3 == 0)
     {
         cout << "ERROR, some word don't have mp3 file." << endl;
@@ -313,6 +319,7 @@ int main(int argc, char *argv[])
     if(do_you_want_to_play_it_out.compare("1")==0){
       system("ffplay -autoexit output.mp3");
     }
+    cout<<"================================end of this app==================================="<<endl;
 }
 //========================END OF MAIN======================================================
 
