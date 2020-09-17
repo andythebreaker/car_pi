@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
     //const string
     const string str_mp3 = ".mp3";
-    string place_of_mp3_lib = "HowHow-parser/result/mp3";//change 1.2.3
+    const string place_of_mp3_lib = "HowHow-parser/result/mp3";
     const string str_mp3_place1 = "/1";
     const string str_mp3_place2 = "/2";
     const string str_wget = "wget ";
@@ -87,14 +87,6 @@ int main(int argc, char *argv[])
     const string str_out_to_text_1 = str_out_to_text + str_dir_list_text_1;
     const string str_out_to_text_2 = str_out_to_text + str_dir_list_text_2;
 
-    //os system find HowHow*
-    ...=argv[3];
-    if(...("1")==0){
-      system("find . -type d -name \"HowHow*\" > tmp_subd.txt");
-      ...
-      place_of_mp3_lib=
-    }
-    
     //no use or old const string
     if (DEBUG_FFMPEG == 0)
     {
@@ -239,24 +231,18 @@ int main(int argc, char *argv[])
         }
     }
     int pinging_mp3_loc[how_meny_word] = {0};
-    
-    cout<<"===============sounds that we need=================="<<endl;
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
     {
-        cout<<arr[i_cut]<<endl;
         pinging_mp3_loc[i_cut] = (std::find(files1.begin(), files1.end(), arr[i_cut] + ".mp3") != files1.end()) ? 1 : 0; //new
         if (pinging_mp3_loc[i_cut] == 0)
             pinging_mp3_loc[i_cut] = (std::find(files2.begin(), files2.end(), arr[i_cut] + ".mp3") != files2.end()) ? 2 : 0; //new
     }
-    cout<<"===================================================="<<endl;
     int check_no_mp3 = -1;
-    //see all word in witch folder
     for (i_cut = 0; i_cut < how_meny_word; i_cut++)
     {
         cout << "mp3 loc folder (1/2): " << pinging_mp3_loc[i_cut] << endl;
         check_no_mp3 *= pinging_mp3_loc[i_cut];
     }
-    //check if all word in folder
     if (check_no_mp3 == 0)
     {
         cout << "ERROR, some word don't have mp3 file." << endl;
@@ -327,7 +313,6 @@ int main(int argc, char *argv[])
     if(do_you_want_to_play_it_out.compare("1")==0){
       system("ffplay -autoexit output.mp3");
     }
-    cout<<"================================end of this app==================================="<<endl;
 }
 //========================END OF MAIN======================================================
 
