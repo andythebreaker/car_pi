@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
     //const string
     const string str_mp3 = ".mp3";
-    const string place_of_mp3_lib = "HowHow-parser/result/mp3";
+    string place_of_mp3_lib = "HowHow-parser/result/mp3";//change 1.2.3
     const string str_mp3_place1 = "/1";
     const string str_mp3_place2 = "/2";
     const string str_wget = "wget ";
@@ -87,6 +87,14 @@ int main(int argc, char *argv[])
     const string str_out_to_text_1 = str_out_to_text + str_dir_list_text_1;
     const string str_out_to_text_2 = str_out_to_text + str_dir_list_text_2;
 
+    //os system find HowHow*
+    ...=argv[3];
+    if(...("1")==0){
+      system("find . -type d -name \"HowHow*\" > tmp_subd.txt");
+      ...
+      place_of_mp3_lib=
+    }
+    
     //no use or old const string
     if (DEBUG_FFMPEG == 0)
     {
