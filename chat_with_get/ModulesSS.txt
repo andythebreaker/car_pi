@@ -1,0 +1,143 @@
+chat02@1.0.0 /home/wp2018/user/andythebreaker/chat_with_get
+├─┬ express@4.16.4
+│ ├─┬ accepts@1.3.5
+│ │ ├─┬ mime-types@2.1.21
+│ │ │ └── mime-db@1.37.0
+│ │ └── negotiator@0.6.1
+│ ├── array-flatten@1.1.1
+│ ├─┬ body-parser@1.18.3
+│ │ ├── bytes@3.0.0
+│ │ ├── content-type@1.0.4 deduped
+│ │ ├── debug@2.6.9 deduped
+│ │ ├── depd@1.1.2 deduped
+│ │ ├─┬ http-errors@1.6.3
+│ │ │ ├── depd@1.1.2 deduped
+│ │ │ ├── inherits@2.0.3
+│ │ │ ├── setprototypeof@1.1.0 deduped
+│ │ │ └── statuses@1.4.0 deduped
+│ │ ├─┬ iconv-lite@0.4.23
+│ │ │ └── safer-buffer@2.1.2
+│ │ ├── on-finished@2.3.0 deduped
+│ │ ├── qs@6.5.2 deduped
+│ │ ├─┬ raw-body@2.3.3
+│ │ │ ├── bytes@3.0.0 deduped
+│ │ │ ├── http-errors@1.6.3 deduped
+│ │ │ ├── iconv-lite@0.4.23 deduped
+│ │ │ └── unpipe@1.0.0 deduped
+│ │ └── type-is@1.6.16 deduped
+│ ├── content-disposition@0.5.2
+│ ├── content-type@1.0.4
+│ ├── cookie@0.3.1
+│ ├── cookie-signature@1.0.6
+│ ├─┬ debug@2.6.9
+│ │ └── ms@2.0.0
+│ ├── depd@1.1.2
+│ ├── encodeurl@1.0.2
+│ ├── escape-html@1.0.3
+│ ├── etag@1.8.1
+│ ├─┬ finalhandler@1.1.1
+│ │ ├── debug@2.6.9 deduped
+│ │ ├── encodeurl@1.0.2 deduped
+│ │ ├── escape-html@1.0.3 deduped
+│ │ ├── on-finished@2.3.0 deduped
+│ │ ├── parseurl@1.3.2 deduped
+│ │ ├── statuses@1.4.0 deduped
+│ │ └── unpipe@1.0.0
+│ ├── fresh@0.5.2
+│ ├── merge-descriptors@1.0.1
+│ ├── methods@1.1.2
+│ ├─┬ on-finished@2.3.0
+│ │ └── ee-first@1.1.1
+│ ├── parseurl@1.3.2
+│ ├── path-to-regexp@0.1.7
+│ ├─┬ proxy-addr@2.0.4
+│ │ ├── forwarded@0.1.2
+│ │ └── ipaddr.js@1.8.0
+│ ├── qs@6.5.2
+│ ├── range-parser@1.2.0
+│ ├── safe-buffer@5.1.2
+│ ├─┬ send@0.16.2
+│ │ ├── debug@2.6.9 deduped
+│ │ ├── depd@1.1.2 deduped
+│ │ ├── destroy@1.0.4
+│ │ ├── encodeurl@1.0.2 deduped
+│ │ ├── escape-html@1.0.3 deduped
+│ │ ├── etag@1.8.1 deduped
+│ │ ├── fresh@0.5.2 deduped
+│ │ ├── http-errors@1.6.3 deduped
+│ │ ├── mime@1.4.1
+│ │ ├── ms@2.0.0 deduped
+│ │ ├── on-finished@2.3.0 deduped
+│ │ ├── range-parser@1.2.0 deduped
+│ │ └── statuses@1.4.0 deduped
+│ ├─┬ serve-static@1.13.2
+│ │ ├── encodeurl@1.0.2 deduped
+│ │ ├── escape-html@1.0.3 deduped
+│ │ ├── parseurl@1.3.2 deduped
+│ │ └── send@0.16.2 deduped
+│ ├── setprototypeof@1.1.0
+│ ├── statuses@1.4.0
+│ ├─┬ type-is@1.6.16
+│ │ ├── media-typer@0.3.0
+│ │ └── mime-types@2.1.21 deduped
+│ ├── utils-merge@1.0.1
+│ └── vary@1.1.2
+└─┬ socket.io@2.1.1
+  ├─┬ debug@3.1.0
+  │ └── ms@2.0.0 deduped
+  ├─┬ engine.io@3.2.1
+  │ ├── accepts@1.3.5 deduped
+  │ ├── base64id@1.0.0
+  │ ├── cookie@0.3.1 deduped
+  │ ├─┬ debug@3.1.0
+  │ │ └── ms@2.0.0 deduped
+  │ ├─┬ engine.io-parser@2.1.3
+  │ │ ├── after@0.8.2
+  │ │ ├── arraybuffer.slice@0.0.7
+  │ │ ├── base64-arraybuffer@0.1.5 deduped
+  │ │ ├── blob@0.0.5
+  │ │ └── has-binary2@1.0.3 deduped
+  │ └─┬ ws@3.3.3
+  │   ├── async-limiter@1.0.0
+  │   ├── safe-buffer@5.1.2 deduped
+  │   └── ultron@1.1.1
+  ├─┬ has-binary2@1.0.3
+  │ └── isarray@2.0.1
+  ├── socket.io-adapter@1.1.1
+  ├─┬ socket.io-client@2.1.1
+  │ ├── backo2@1.0.2
+  │ ├── base64-arraybuffer@0.1.5
+  │ ├── component-bind@1.0.0
+  │ ├── component-emitter@1.2.1
+  │ ├─┬ debug@3.1.0
+  │ │ └── ms@2.0.0 deduped
+  │ ├─┬ engine.io-client@3.2.1
+  │ │ ├── component-emitter@1.2.1 deduped
+  │ │ ├── component-inherit@0.0.3
+  │ │ ├─┬ debug@3.1.0
+  │ │ │ └── ms@2.0.0 deduped
+  │ │ ├── engine.io-parser@2.1.3 deduped
+  │ │ ├── has-cors@1.1.0 deduped
+  │ │ ├── indexof@0.0.1 deduped
+  │ │ ├── parseqs@0.0.5 deduped
+  │ │ ├── parseuri@0.0.5 deduped
+  │ │ ├── ws@3.3.3 deduped
+  │ │ ├── xmlhttprequest-ssl@1.5.5
+  │ │ └── yeast@0.1.2
+  │ ├── has-binary2@1.0.3 deduped
+  │ ├── has-cors@1.1.0
+  │ ├── indexof@0.0.1
+  │ ├── object-component@0.0.3
+  │ ├─┬ parseqs@0.0.5
+  │ │ └─┬ better-assert@1.0.2
+  │ │   └── callsite@1.0.0
+  │ ├─┬ parseuri@0.0.5
+  │ │ └── better-assert@1.0.2 deduped
+  │ ├── socket.io-parser@3.2.0 deduped
+  │ └── to-array@0.1.4
+  └─┬ socket.io-parser@3.2.0
+    ├── component-emitter@1.2.1 deduped
+    ├─┬ debug@3.1.0
+    │ └── ms@2.0.0 deduped
+    └── isarray@2.0.1 deduped
+
